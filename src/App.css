@@ -1,0 +1,13 @@
+.svg {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 30px;
+  color: #90ee90;
+  opacity: 0.8;
+}
+.imgLogo {
+  width: 150px;
+  height: 30px;
+  margin-top: 10px;
+}
