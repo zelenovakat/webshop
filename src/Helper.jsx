@@ -95,3 +95,17 @@ const StyledLi = styled.li`
     text-decoration: none;
   }
 `
+
+
+<Router>
+          <Switch>
+            <Route path="/CheckoutPage">
+              <StyledLi>
+                <Link to="/CheckoutPage">
+                  <FontAwesomeIcon icon={faShoppingBag} />
+                </Link>
+              </StyledLi>
+              <AddEvent />
+            </Route>
+          </Switch>
+        </Router>

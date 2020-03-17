@@ -29,7 +29,3 @@ export const products = [
     price: "949kr",
   },
 ]
-// background-image: url(${black});
-// background: url("");
-//       background-size: cover;
-//       border: 2px solid white;
