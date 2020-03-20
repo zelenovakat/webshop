@@ -1,7 +1,7 @@
-import LeopardImg from "../src/Logo/Leopard.jpg"
-import pinkImg from "../src/Logo/pink.jpg"
-import whiteImg from "../src/Logo/white.jpg"
-import blackImg from "../src/Logo/black.jpeg"
+import LeopardImg from "../src/images/Leopard.jpg"
+import pinkImg from "../src/images/pink.jpg"
+import whiteImg from "../src/images/white.jpg"
+import black1Img from "../src/images/black1.jpeg"
 
 export const products = [
   {
@@ -13,7 +13,7 @@ export const products = [
   {
     id: 2,
     title: "Black Marble",
-    cover: blackImg,
+    cover: black1Img,
     price: "949kr",
   },
   {

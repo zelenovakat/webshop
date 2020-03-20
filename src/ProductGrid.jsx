@@ -1,22 +1,32 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
-import happyPlugsImg from "../src/Logo/happyPlugs.png"
+import happyPlugsImg from "../src/images/happyPlugs.png"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faShoppingBag } from "@fortawesome/free-solid-svg-icons"
 import { faCircle } from "@fortawesome/free-solid-svg-icons"
 import "./App.css"
 import { products } from "./Products"
 import { Link } from "react-router-dom"
+import useLocalStorage from "./components/UseLocalStorage"
 
 const ProductGrid = () => {
-  const [plugs] = useState(products)
-  const mappedPlugs = plugs.map(headPhones => {
+  const defaultCart = []
+  const [cart, setCart] = useLocalStorage("cart", defaultCart)
+  console.log("hello", cart)
+
+  const handleAddToCart = headPhones => {
+    console.log(headPhones)
+    const updatedCart = [...cart, { ...headPhones, quantity: 1 }]
+    setCart(updatedCart)
+  }
+
+  const mappedProducts = products.map(headPhones => {
     return (
       <ProductInfo key={headPhones.id}>
         <img src={headPhones.cover} alt="" />
-        <p>{headPhones.title}</p>
+        <Title>{headPhones.title}</Title>
         <p>{headPhones.price}</p>
-        <ButtonAdd>ADD TO CARD</ButtonAdd>
+        <ButtonAdd onClick={() => handleAddToCart(headPhones)}>ADD TO CARD</ButtonAdd>
       </ProductInfo>
     )
   })
@@ -27,7 +37,7 @@ const ProductGrid = () => {
           <img src={happyPlugsImg} className="imgLogo" alt="" />
         </HeaderLogo>
         <Button>
-          <Link to="/CheckoutPage">
+          <Link to="/cart">
             <FontAwesomeIcon icon={faShoppingBag} />
           </Link>
         </Button>
@@ -36,12 +46,15 @@ const ProductGrid = () => {
           <p>1</p>
         </IconGreenCircle>
       </MainDiv>
-      <ProductDiv>{mappedPlugs}</ProductDiv>
+      <ProductDiv>{mappedProducts}</ProductDiv>
     </>
   )
 }
 
 export default ProductGrid
+const Title = styled.p`
+  font-weight: bold;
+`
 
 const IconGreenCircle = styled.div`
   p {
@@ -58,6 +71,7 @@ const ButtonAdd = styled.button`
   width: 110px;
   height: 30px;
   align-self: center;
+  font-weight: bold;
 `
 const ProductInfo = styled.div`
   margin: 15px;
@@ -95,4 +109,7 @@ const Button = styled.button`
   display: flex;
   font-size: 50px;
   color: #e9967a;
+  a {
+    color: #d2b48c;
+  }
 `

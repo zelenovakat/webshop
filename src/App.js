@@ -1,18 +1,18 @@
 import React from "react"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import ProductGrid from "../src/ProductGrid"
-
-import CheckoutPage from "./CheckoutPage"
+import Cart from "../src/Cart"
+// import CheckoutPage from "./CheckoutPage"
 
 const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/ProductGrid">
+        <Route path="/productGrid">
           <ProductGrid />
         </Route>
-        <Route path="/CheckoutPage">
-          <CheckoutPage />
+        <Route path="/cart">
+          <Cart />
         </Route>
       </Switch>
     </Router>
