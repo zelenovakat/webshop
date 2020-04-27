@@ -11,3 +11,7 @@
   height: 30px;
   margin-top: 10px;
 }
+
+img {
+  border-radius: 0px;
+}
